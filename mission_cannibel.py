@@ -1,8 +1,9 @@
+# author @shubhamphl
 class mission:
 
-    def find_solution(self,state):                                                                               # find all possible states
+    def find_solution(self,state):                                                                 # find all possible states
         if state[2]==0:
-            if state[0]>=2:                                                                                      # move two cannibals to right side
+            if state[0]>=2:                                                                        # move two cannibals to right side
                 j = (state[0] - 2, state[1], 1, state[3] + 2, state[4])
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0]-2,state[1],1,state[3]+2,state[4])):
@@ -15,7 +16,7 @@ class mission:
 
 
             if state[1]>=2:
-                j = (state[0], state[1] - 2, 1, state[3], state[4] + 2)                                     # move two missionaries to right side
+                j = (state[0], state[1] - 2, 1, state[3], state[4] + 2)                           # move two missionaries to right side
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0],state[1]-2,1,state[3],state[4]+2)):
                         j=(state[0],state[1]-2,1,state[3],state[4]+2)
@@ -26,7 +27,7 @@ class mission:
                         self.check_goal(j)
 
 
-            if state[0]>0 and state[1]>0:                                                                   # move 1 missionary and 1 cannibal to right side
+            if state[0]>0 and state[1]>0:                                              # move 1 missionary and 1 cannibal to right side
                 j = (state[0] - 1, state[1] - 1, 1, state[3] + 1, state[4] + 1)
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0]-1,state[1]-1,1,state[3]+1,state[4]+1)):
@@ -41,7 +42,7 @@ class mission:
 
         else:
 
-            if state[3]>=2:                                                                                       # move two cannibals to left side
+            if state[3]>=2:                                                                       # move two cannibals to left side
                 j = (state[0] + 2, state[1], 0, state[3] - 2, state[4])
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0] + 2, state[1], 0,state[3]-2,state[4])):
@@ -53,7 +54,7 @@ class mission:
                         self.check_goal(j)
 
 
-            if state[4] >= 2:                                                                                     # move two missionaries to left side
+            if state[4] >= 2:                                                                    # move two missionaries to left side
                 j = (state[0], state[1] + 2, 0, state[3], state[4] - 2)
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0], state[1] + 2, 0,state[3],state[4]-2)):
@@ -64,7 +65,7 @@ class mission:
                         parents[j] = state
                         self.check_goal(j)
 
-            if state[3] > 0 and state[4] > 0:                                                                   # move 1 missionary and 1 cannibal to left side
+            if state[3] > 0 and state[4] > 0:                                           # move 1 missionary and 1 cannibal to left side
                 j = (state[0] + 1, state[1] + 1, 0,state[3]-1,state[4]-1)
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0] + 1, state[1] + 1, 0,state[3]-1,state[4]-1)):
@@ -78,7 +79,7 @@ class mission:
 
             if state[3]>0:
 
-                j=(state[0]+1,state[1],0,state[3]-1,state[4])                                                  # move 1 cannibal to left side
+                j=(state[0]+1,state[1],0,state[3]-1,state[4])                                    # move 1 cannibal to left side
 
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
                     if not visited_nodes.__contains__((state[0]+1,state[1],0,state[3]-1,state[4])):
@@ -91,7 +92,7 @@ class mission:
 
 
 
-            if state[4]>0:                                                                                     # move 1 missionary to left side
+            if state[4]>0:                                                                         # move 1 missionary to left side
 
                 j=(state[0],state[1]+1,0,state[3],state[4]-1)
                 if not ((j[0] > j[1] and j[1] >= 1) or (j[3] > j[4] and j[4] >= 1)):
